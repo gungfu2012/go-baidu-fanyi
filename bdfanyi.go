@@ -236,7 +236,7 @@ func Gtk() (tk string, err error) {
 		return
 	}
 
-	regex := regexp.MustCompile(`;window.gtk = '(\d+\.\d+?)';`)
+	regex := regexp.MustCompile(`;window.gtk = "(\d+\.\d+?)";`)
 	re := regex.FindAllStringSubmatch(string(body), -1)
 	if len(re) < 1 && len(re[0]) < 2 {
 		err = fmt.Errorf("get gtk error")
